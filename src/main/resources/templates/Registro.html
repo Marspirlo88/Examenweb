@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <form th:action="@{/agregar}" method="post" th:object="${usuario}">
+            
+        <input type="hidden" name="idusuario" th:field="*{idusuario}"/>    
+            
+        <label for="usu">Usuario</label>
+        <input type="text" name="usu" th:field="*{usu}" />
+        <br/>
+        
+        <label for="password">Password</label>
+        <input type="text" name="password" th:field="*{password}"/>
+        <br/>
+        
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" th:field="*{nombre}"/>
+        <br/>
+        
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" th:field="*{apellido}"/>
+        <br/>
+        
+        <label for="escuela">Escuela</label>
+        <input type="text" name="escuela" th:field="*{escuela}"/>
+        <br/>
+        <label for="grado">Grado</label>
+        <input type="text" name="grado" th:field="*{grado}"/>
+        <br/>
+        <input type="submit" name="agregar" value="Guardar"/> 
+        
+        </form>
+    </body>
+</html>
