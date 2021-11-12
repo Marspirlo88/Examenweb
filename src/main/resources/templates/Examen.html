@@ -1,0 +1,68 @@
+
+<html xmlns:th="http://www.thyameleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form th:action="@{/agregarpregunta}" method="post" th:object="${preguntas}">
+                <label for="pregunta">Ingrese Pregunta</label>
+                <input type="text" name="pregunta" />    
+                <br/>
+                <label for="respuesta1">Ingrese Opcion1</label>
+                <input type="text" name="respuesta1" />    
+                <br/>
+                <label for="pregunta2">Ingrese Opcion2</label>
+                <input type="text" name="respuesta2" />    
+                <br/>
+                <label for="respuesta3">Ingrese Opcion3</label>
+                <input type="text" name="respuesta3" />    
+                <br/>
+                <label for="respuestacorrecta">Ingrese</label>
+                <select name="respuestacorrecta">
+                    <option value="Opcion1" >Opcion1</option>    
+                    <option value="Opcion2" >Opcion2</option> 
+                    <option value="Opcion3" >Opcion3</option>
+                    <br>
+                    <input type="submit" value="Agregar" />
+                </select>    
+                <br/>
+
+            </form>
+
+
+        </div>
+
+
+        <br/>
+        <br/>
+
+        <table>
+            <h1>Lista De tus preguntas</h1>
+            <tr>Pregunta</tr>
+            <tr>Opcion1</tr>
+            <tr>Opcion2</tr>
+            <tr>Opcion3</tr>
+
+            <tr th:each="preguntas : ${listapreguntas}">
+                 <td th:text="${preguntas.idpreguntas}"></td>
+                 <td th:text="${preguntas.pregunta}"></td>
+                <td th:text="${preguntas.respuesta1}"></td>
+                <td th:text="${preguntas.respuesta2}"></td>
+                <td th:text="${preguntas.respuesta3}"></td>
+                <td th:text="${preguntas.respuestacorrecta}"></td>
+ <td><a th:href="@{/editarpregunta/} + ${preguntas.idpreguntas}" th:text="Editar"></a></td>
+
+
+            </tr>
+            
+
+
+        </table>
+
+        <a th:href="@{/cuestionario}">Ir A cuestionario</a>
+        <a th:href="@{/Examen}">Ir a examen</a>
+    </body>
+</html>

@@ -17,29 +17,38 @@ and open the template in the editor.
         <input type="hidden" name="idusuario" th:field="*{idusuario}"/>    
             
         <label for="usu">Usuario</label>
-        <input type="text" name="usu" th:field="*{usu}" />
+        <input type="text" name="usu" th:field="*{usu}"/>
+       <span th:if="${#fields.hasErrors('usu')}" th:errors="*{usu}">Error Nombre</span>
         <br/>
-        
         <label for="password">Password</label>
         <input type="text" name="password" th:field="*{password}"/>
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> </span>
         <br/>
         
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" th:field="*{nombre}"/>
+        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"> </span>
+
         <br/>
         
         <label for="apellido">Apellido</label>
         <input type="text" name="apellido" th:field="*{apellido}"/>
+        <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></span>
+            
         <br/>
         
         <label for="escuela">Escuela</label>
         <input type="text" name="escuela" th:field="*{escuela}"/>
+        <span th:if="${#fields.hasErrors('escuela')}"  th:errors="*{escuela}"></span>
         <br/>
         <label for="grado">Grado</label>
         <input type="text" name="grado" th:field="*{grado}"/>
+        <span th:if="${#fields.hasErrors('grado')}" th:errors="*{grado}"></span>
         <br/>
         <input type="submit" name="agregar" value="Guardar"/> 
         
         </form>
+        
+        <a th:href="@{/registro/}">Regresar A Inicio</a>
     </body>
 </html>
